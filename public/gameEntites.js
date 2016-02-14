@@ -4,17 +4,28 @@ var Tile = function(position, owner) {
 	this.hits = 0;
 }
 
+var makeTiles = function(length) {
+	var tiles = [];
+	for (var i = 0; i < length; i++) {
+		for (var j = 0; j < length; j++) {
+			var tile = new Tile([i,j], null)
+			tiles.push(tile);
+		}
+	}
+	return tiles;
+}
+
 // Tile.prototype = {
 // 	isCornerPosition : function(){
-// 		var corners = [0,8];
+// 		var corners = [0,7];
 // 		return ((this.position[0].indexOf(corners) >=0) && (this.position[1].indexOf(corners)) >= 0)
 // 		? true 
 // 		: false;
 // 	},
 
 // 	isSidePosition : function(){
-// 		var side = [1,2,3,4,5,6,7];
-// 		var corners = [0,8];
+// 		var side = [1,2,3,4,5,6];
+// 		var corners = [0,7];
 
 // 	},
 
@@ -24,18 +35,19 @@ var Tile = function(position, owner) {
 
 // 	isBlast : function(position){
 
-// 	}
+// 	},
+
+	// capacity : function(){
+
+	// }
 // };
 
-// var Game = function(player1, player2){
-// 	this.players = {player1 : player1, player2 : player2}
-// 	this.tiles = [];
-// }
+var Game = function(player1, player2){
+	this.players = {player1 : {name :player1, color :'red'}, player2 : {name :player2, color :'blue'}}
+	this.tiles = makeTiles(8);
+}
 
 // Game.prototype = {
-// 	startTheGame : function(){
-
-// 	},
 
 // 	isStarted : function(){
 
