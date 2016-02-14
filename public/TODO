@@ -1,0 +1,21 @@
+1.make tile entity
+		[position,owner,hits]
+	-tile prototype
+		> isCorner
+		> isSide
+		> hitCount
+		> isBlast
+		> capacity
+
+2.make game entity
+		[players,tiles]
+	-make game board (contain all tiles)
+		[all tiles,usedTiles,emptyTiles, some properties]
+	-game prototype
+		> isSterted
+		> isEnd
+		> currentPlayer
+
+3.make player entity
+		[name, color,tileOwend]
+	-player prototype
