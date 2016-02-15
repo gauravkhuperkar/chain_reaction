@@ -10,7 +10,7 @@ entities.makeTiles = function(length) {
 	var tiles = [];
 	for (var i = 0; i < length; i++) {
 		for (var j = 0; j < length; j++) {
-			var tile = new Tile([i,j], null)
+			var tile = new entities.Tile([i,j], null)
 			tiles.push(tile);
 		}
 	}
