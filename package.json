@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"node controller.js"
+    "test": "mocha public/gameTest.js",
+    "start": "node controller.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/screwJack/chain_reaction/issues"
   },
-  "homepage": "https://github.com/screwJack/chain_reaction#readme"
+  "homepage": "https://github.com/screwJack/chain_reaction#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
