@@ -39,14 +39,14 @@ entities.makeTiles = function(length) {
 
 // 	},
 
-	// capacity : function(){
+// 	capacity : function(){
 
-	// }
+// 	}
 // };
 
-entities.Game = function(player1, player2){
+entities.Game = function(player1, player2, length){
 	this.players = {player1 : {name :player1, color :'red'}, player2 : {name :player2, color :'blue'}}
-	this.tiles = makeTiles(8);
+	this.tiles = entities.makeTiles(length);
 }
 
 // Game.prototype = {
@@ -61,6 +61,10 @@ entities.Game = function(player1, player2){
 
 // 	currentPlayer : function(){
 
+// 	},
+
+// 	givePositionOfTile : function(tile){
+// 		return strirng..corner,side,middle;
 // 	}
 // };
 
