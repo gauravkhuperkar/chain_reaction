@@ -1,10 +1,12 @@
-var Tile = function(position, owner) {
+var entities = {};
+
+entities.Tile = function(position, owner) {
 	this.position = position;
-	this.setOwner = owner;
+	this.owner = owner;
 	this.hits = 0;
 }
 
-var makeTiles = function(length) {
+entities.makeTiles = function(length) {
 	var tiles = [];
 	for (var i = 0; i < length; i++) {
 		for (var j = 0; j < length; j++) {
@@ -42,7 +44,7 @@ var makeTiles = function(length) {
 	// }
 // };
 
-var Game = function(player1, player2){
+entities.Game = function(player1, player2){
 	this.players = {player1 : {name :player1, color :'red'}, player2 : {name :player2, color :'blue'}}
 	this.tiles = makeTiles(8);
 }
@@ -66,3 +68,5 @@ var Game = function(player1, player2){
 // 	this.name = name;
 // 	this.color = color;
 // }
+
+exports.entities = entities;
