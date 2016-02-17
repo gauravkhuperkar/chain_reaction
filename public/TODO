@@ -1,5 +1,6 @@
 1.make tile entity
 		[position,owner,hits]
+		-tests
 	-tile prototype
 		> isCorner
 		> isSide
@@ -9,6 +10,7 @@
 
 2.make game entity
 		[players,tiles]
+		-tests
 	-make game board (contain all tiles)
 		[all tiles,usedTiles,emptyTiles, some properties]
 	-game prototype
@@ -18,4 +20,5 @@
 
 3.make player entity
 		[name, color,tileOwend]
+		-tests
 	-player prototype

@@ -45,32 +45,34 @@ entities.makeTiles = function(length) {
 // };
 
 entities.Game = function(player1, player2, length){
-	this.players = {player1 : {name :player1, color :'red'}, player2 : {name :player2, color :'blue'}}
+	this.players = {player1 : player1, player2 : player2}
 	this.tiles = entities.makeTiles(length);
 }
 
-// Game.prototype = {
 
-// 	isStarted : function(){
+entities.Game.prototype = {
 
-// 	},
+	isStarted : function(){
+		return (this.players.player1.name && this.players.player2.name) ? true : false;
+	},
 
-// 	isEnd : function(){
+	// isEnd : function(){
 
-// 	},
+	// },
 
-// 	currentPlayer : function(){
+	// currentPlayer : function(){
 
-// 	},
+	// },
 
-// 	givePositionOfTile : function(tile){
-// 		return strirng..corner,side,middle;
-// 	}
-// };
+	// givePositionOfTile : function(tile){
+	// 	return strirng..corner,side,middle;
+	// }
+};
 
-// var Player = function(name,color){
-// 	this.name = name;
-// 	this.color = color;
-// }
+
+var Player = function(name,color){
+	this.name = name;
+	this.color = color;
+}
 
 exports.entities = entities;

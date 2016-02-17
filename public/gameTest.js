@@ -1,5 +1,6 @@
 var game = require('./gameEntites.js').entities;
 var expect = require('chai').expect;
+var assert = require('chai').assert;
 
 describe('Tile', function(){
 	it('should have position', function(){
@@ -39,3 +40,18 @@ describe('makeTile', function(){
 		expect(make_tile[0]).to.be.an('object');
 	});
 });
+
+describe('Game',function(){
+	it('should start with two player',function(){
+		var player1 = {name : 'circuit'};
+		var player2 = {name : 'Munna_bhai'};
+		var myGame = new game.Game(player1,player2,4);
+		assert.ok(myGame.isStarted);
+	})
+	it('should not start if two player are not present',function(){
+		var player1 = {name:undefined};
+		var player2 = {name : 'Munna_bhai'};
+		var myGame = new game.Game(player1,player2,4);
+		assert.notOk(myGame.isStarted());
+	})
+})
