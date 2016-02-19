@@ -47,6 +47,7 @@ entities.makeTiles = function(length) {
 entities.Game = function(player1, player2, length){
 	this.players = {player1 : player1, player2 : player2}
 	this.tiles = entities.makeTiles(length);
+	this.length = length;
 }
 
 
@@ -67,7 +68,7 @@ entities.Game.prototype = {
 	// givePositionOfTile : function(tile){
 	// 	return strirng..corner,side,middle;
 	// }
-};
+}
 
 
 var Player = function(name,color){
