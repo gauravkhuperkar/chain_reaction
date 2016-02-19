@@ -5,7 +5,10 @@
 		> isCorner
 		> isSide
 		> hitCount
+			--> should not count the hits once the capacity of tile get fullfill
+			--> should not allow to hit tile to opponent/opposite player
 		> isBlast
+			--> should not be check who is owner but should be change the owner of tile
 		> capacity
 
 2.make game entity
