@@ -25,3 +25,12 @@
 		[name, color,tileOwend]
 		-tests
 	-player prototype
+
+----------------------------------------------------------------------------
+23 feb (Madhuri entry)
+* change Game object
+	> accept players array
+
+* change datatype of tile position
+
+* write more tests for functions required to set tile constructor's field
