@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha public/gameTest.js",
+    "test": "mocha public/test/gameTest.js",
     "start": "node controller.js"
   },
   "repository": {
