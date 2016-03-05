@@ -94,10 +94,17 @@ describe('Game',function(){
 })
 
 describe('blast',function(){
-    it('should give false if tile is not full to capacity',function(){
+    it('should give false if hits of tile is not full to capacity',function(){
 		var players = [{name : 'circuit'},{name : 'Munna_bhai'}];
 		var myGame = new game.Game(players,4);
-		var expectToNotBlast = game.blast({x:3,y:2},myGame.tiles,"Munna_bhai",myGame.length);
+		var expectToNotBlast = game.blast({x:3,y:2,capacity:4,hits:0},myGame.tiles,"Munna_bhai",myGame.length);
 		assert.notOk(expectToNotBlast);
+    })
+
+    it('should give true if hits of tile is full to capacity',function(){
+		var players = [{name : 'circuit'},{name : 'Munna_bhai'}];
+		var myGame = new game.Game(players,4);
+		var expectToNotBlast = game.blast({x:3,y:2,capacity:4,hits:4},myGame.tiles,"Munna_bhai",myGame.length);
+		assert.ok(expectToNotBlast);
     })
 })
