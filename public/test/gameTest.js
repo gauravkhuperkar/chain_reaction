@@ -92,3 +92,12 @@ describe('Game',function(){
         assert.notOk(myGame.isStarted());
     })
 })
+
+describe('blast',function(){
+    it('should give false if tile is not full to capacity',function(){
+		var players = [{name : 'circuit'},{name : 'Munna_bhai'}];
+		var myGame = new game.Game(players,4);
+		var expectToNotBlast = game.blast({x:3,y:2},myGame.tiles,"Munna_bhai",myGame.length);
+		assert.notOk(expectToNotBlast);
+    })
+})

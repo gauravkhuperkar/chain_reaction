@@ -77,7 +77,7 @@ var Player = function(name,color){
 	this.color = color;
 }
 
-var blast = function(tileToBlast,tiles,owner,length){
+entities.blast = function(tileToBlast,tiles,owner,length){
 	if(tileToBlast.capacity != tiles.hits)
 		return false;
 	// index of tile to blast (current tile)
@@ -97,8 +97,5 @@ var blast = function(tileToBlast,tiles,owner,length){
 
 	console.log("a->>",tiles[a],"\n\nb->> ",tiles[b],"\n\nc->>",tiles[c],"\n\nd->>",tiles[d],"\n\nkaliya->>",tiles[tileToBlastPositionInTiles]);
 }
-
-var g = new entities.Game(["qwer","qwert"],5);
-console.log(blast({x:3,y:2},g.tiles,"qwert",5));
 
 exports.entities = entities;
