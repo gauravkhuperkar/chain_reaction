@@ -77,4 +77,28 @@ var Player = function(name,color){
 	this.color = color;
 }
 
+var blast = function(tileToBlast,tiles,owner,length){
+	if(tileToBlast.capacity != tiles.hits)
+		return false;
+	// index of tile to blast (current tile)
+	var tileToBlastPositionInTiles = ((tileToBlast.x*length)+tileToBlast.y);
+
+	// left tile
+	var a = ((tileToBlast.x*length)+tileToBlast.y-1);
+
+	// right tile
+	var b = ((tileToBlast.x*length)+tileToBlast.y+1);
+
+	// up tile
+	var c = (((tileToBlast.x-1)*length)+tileToBlast.y);
+
+	// down tile
+	var d = (((tileToBlast.x+1)*length)+tileToBlast.y);
+
+	console.log("a->>",tiles[a],"\n\nb->> ",tiles[b],"\n\nc->>",tiles[c],"\n\nd->>",tiles[d],"\n\nkaliya->>",tiles[tileToBlastPositionInTiles]);
+}
+
+var g = new entities.Game(["qwer","qwert"],5);
+console.log(blast({x:3,y:2},g.tiles,"qwert",5));
+
 exports.entities = entities;
