@@ -78,24 +78,35 @@ var Player = function(name,color){
 }
 
 entities.blast = function(tileToBlast,tiles,owner,length){
-	if(tileToBlast.capacity != tiles.hits)
+	if(tileToBlast.capacity > tileToBlast.hits)
 		return false;
-	// index of tile to blast (current tile)
-	var tileToBlastPositionInTiles = ((tileToBlast.x*length)+tileToBlast.y);
 
-	// left tile
-	var a = ((tileToBlast.x*length)+tileToBlast.y-1);
+	var leftTile = tiles[((tileToBlast.x*length)+tileToBlast.y-1)]
+	if(leftTile){
+		leftTile.hits++;
+		leftTile.owner  = owner;
+	}
 
-	// right tile
-	var b = ((tileToBlast.x*length)+tileToBlast.y+1);
+	var rightTile = ((tileToBlast.x*length)+tileToBlast.y+1);
+	if(rightTile){
+		rightTile.hits++;
+		rightTile.owner  = owner;
+	}
 
 	// up tile
-	var c = (((tileToBlast.x-1)*length)+tileToBlast.y);
+	var upTile = (((tileToBlast.x-1)*length)+tileToBlast.y);
+	if(upTile){
+		upTile.hits++;
+		upTile.owner  = owner;
+	}
 
 	// down tile
-	var d = (((tileToBlast.x+1)*length)+tileToBlast.y);
-
-	console.log("a->>",tiles[a],"\n\nb->> ",tiles[b],"\n\nc->>",tiles[c],"\n\nd->>",tiles[d],"\n\nkaliya->>",tiles[tileToBlastPositionInTiles]);
+	var downTile = (((tileToBlast.x+1)*length)+tileToBlast.y);
+	if(downTile){
+		downTile.hits++;
+		downTile.owner  = owner;
+	}
+	return true;
 }
 
 exports.entities = entities;
