@@ -3,6 +3,7 @@ var expect = require('chai').expect;
 var game = require("../javaScript/gameEntites").entities;
  
 describe('Tile', function(){
+	var sampleGame = new game.Game(["player1", "player2"],6);
 	describe('position', function(){
 		
 	    it('should have position', function(){
@@ -31,6 +32,12 @@ describe('Tile', function(){
 	        var tile = new game.Tile({x:0,y:0},null);
 	        assert.ok(tile.isCorner);
 	    })
+
+	    it('isSide and isMiddle fields should be false', function(){
+	        var tile = sampleGame.tiles[0];
+	        assert.notOk(tile.isSide);
+	        assert.notOk(tile.isMiddle);
+	    })
 	})
 
 	describe('Side Tiles', function(){
@@ -43,6 +50,12 @@ describe('Tile', function(){
 	        var tile = new game.Tile({x:1,y:0},null);
 	        assert.ok(tile.isSide);
 	    })
+
+	    it('isCorner and isMiddle fields should be false', function(){
+	        var tile = sampleGame.tiles[1];
+	        assert.notOk(tile.isCorner);
+	        assert.notOk(tile.isMiddle);
+	    })
 	})
 
 	describe('Middle Tiles', function(){
@@ -54,6 +67,12 @@ describe('Tile', function(){
 	    it('isMiddle field should be true', function(){
 	        var tile = new game.Tile({x:1,y:4},null);
 	        assert.ok(tile.isMiddle);
+	    })
+
+	    it('isCorner and isSide fields should be false', function(){
+	        var tile = sampleGame.tiles[8];
+	        assert.notOk(tile.isCorner);
+	        assert.notOk(tile.isSide);
 	    })
 	})
 })
