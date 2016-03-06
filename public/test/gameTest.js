@@ -108,3 +108,30 @@ describe('blast',function(){
 		assert.ok(expectToNotBlast);
     })
 })
+
+describe('hit',function(){
+	it('should allow to hit to any player if tile is empty',function(){
+		var tile = {x:2, y:2, capacity:4, owner:null, hits:0};
+		var expectToHit = game.hit(tile,'pappu');
+		assert.ok(expectToHit);
+    })
+
+    it('should give false if the player heated tile is not the owner of tile',function(){
+		var tile = {x:2, y:2, capacity:4, owner:"Nene", hits:0};
+		var expectToHit = game.hit(tile,"Dixit");
+		assert.notOk(expectToHit);
+    })
+
+    it('should give true even if tile heated preciously by same owner',function(){
+		var tile = {x:3, y:2, capacity:4, owner:"Dixit", hits:2};
+		var expectToHit = game.hit(tile,"Dixit");
+		assert.ok(expectToHit);
+    })
+
+    it('should increase hit of tile by one',function(){
+		var tile = {x:3, y:3, capacity:4, owner:"Roshan", hits:2};
+		var hit = game.hit(tile,"Roshan");
+		assert.equal(tile.hits,3);
+    })
+  
+})
