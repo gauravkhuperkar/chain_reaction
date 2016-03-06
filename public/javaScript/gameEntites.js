@@ -11,6 +11,13 @@ entities.Tile = function(position, owner) {
 	this.isMiddle = true;
 }
 
+entities.hit = function(tile,owner){
+	if(tile.capacity > tile.hits && (tile.owner == owner || tile.owner == null)){
+		tile.hits++;
+		return true;
+	}
+	return false;
+}
 
 entities.setCornerTiles = function(tiles,length) {
 	var corners = [
